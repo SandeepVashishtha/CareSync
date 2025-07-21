@@ -1,0 +1,128 @@
+.dashboard-navbar {
+    background: #011c39;
+    color: #fff;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.navbar-links li:hover {
+    color: #ffd700;
+}
+
+.dashboard-container {
+    padding: 20px;
+    background-color: #f4f7fa;
+    min-height: 90vh;
+}
+
+.dashboard-title {
+    font-size: 2rem;
+    color: #011c39;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    flex: 1 1 30%;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    min-width: 250px;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.card ul {
+    margin-top: 8px;
+    padding-left: 18px;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.dashboard-notifications {
+    margin-top: 32px;
+    background: #fff;
+    padding: 18px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.07);
+}
+
+.dashboard-notifications h2 {
+    font-size: 1.1rem;
+    color: #011c39;
+    margin-bottom: 10px;
+}
+
+.dashboard-notifications ul {
+    padding-left: 18px;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.dashboard-quicklinks {
+    margin-top: 32px;
+}
+
+.dashboard-quicklinks h2 {
+    font-size: 1.1rem;
+    color: #011c39;
+    margin-bottom: 10px;
+}
+
+.quicklinks-list {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.quicklink {
+    background: #011c39;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.quicklink:hover {
+    background: #02306a;
+}

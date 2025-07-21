@@ -1,0 +1,46 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #011c39;
+    padding: 24px 20px;
+    color: white;
+}
+
+.navbar-logo a {
+    font-family: "Book Antiqua", sans-serif;
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex: 1;
+    margin: 0;
+}
+
+.navbar-links li a {
+    font-size: 1.1rem;
+    font-family: "Book Antiqua", sans-serif;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.navbar-auth {
+    font-size: 1.1rem;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar-auth a {
+    font-family: "Book Antiqua", sans-serif;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
