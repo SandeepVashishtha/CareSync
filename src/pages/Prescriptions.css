@@ -1,0 +1,48 @@
+.prescriptions-container {
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.prescriptions-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.prescriptions-form input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.prescriptions-form button {
+    padding: 0.5rem 1rem;
+    background: #388e3c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.prescriptions-form button:hover {
+    background: #2e7031;
+}
+
+.prescriptions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.prescriptions-table th,
+.prescriptions-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.prescriptions-table th {
+    background: #f5f5f5;
+}
+

@@ -1,4 +1,8 @@
 [
-  { "id": 1, "name": "Dr. Sandeep Vashishtha", "specialty": "Cardiologist" },
-  { "id": 2, "name": "Dr. Anjali Mehra", "specialty": "Dermatologist" }
+  { "id": 1, "name": "Dr. Anjali Mehra", "specialty": "Dermatologist" },
+  { "id": 2, "name": "Dr. Chaman Lal", "specialty": "General Physician" },
+  { "id": 3, "name": "Dr. Priya Sharma", "specialty": "Pediatrician" },
+  { "id": 4, "name": "Dr. Amit Gupta", "specialty": "Orthopedic Surgeon" },
+  { "id": 5, "name": "Dr. Neha Singh", "specialty": "Neurologist" },
+  { "id": 6, "name": "Dr. Rajesh Kumar", "specialty": "ENT Specialist" }
 ]
