@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import axios from 'axios';
+import { authAPI } from '../services/api';
 import './Register.css';
 
 function Register() {
     const [form, setForm] = useState({ name: '', email: '', password: '' });
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { login } = useAuth();
 
@@ -17,10 +18,12 @@ function Register() {
 
     const handleSubmit = async e => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
+        
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/signup', form);
+            const response = await authAPI.register(form);
             setSuccess(true);
-            setError('');
             // Auto-login after successful registration
             if (response.data) {
                 login(response.data);
@@ -30,6 +33,8 @@ function Register() {
             }
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -69,7 +74,9 @@ function Register() {
                             required
                         />
                     </div>
-                    <button type="submit">Register</button>
+                    <button type="submit" disabled={loading}>
+                        {loading ? 'Registering...' : 'Register'}
+                    </button>
                     {error && <div className="error-message">{error}</div>}
                 </form>
             )}

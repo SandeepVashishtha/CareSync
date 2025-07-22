@@ -46,3 +46,58 @@
     background: #f5f5f5;
 }
 
+.delete-btn {
+    padding: 0.3rem 0.6rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.login-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin: 2rem 0;
+}
+
+.no-appointments {
+    text-align: center;
+    color: #666;
+    margin: 2rem 0;
+    font-style: italic;
+}
+
+.loading-message {
+    text-align: center;
+    color: #007bff;
+    margin: 2rem 0;
+    font-weight: 500;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
+.appointments-form button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.appointments-form input:disabled,
+.appointments-form select:disabled {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+

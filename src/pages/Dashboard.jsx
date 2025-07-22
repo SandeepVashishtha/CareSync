@@ -1,9 +1,12 @@
 import React from 'react';
 import { useAuth } from '../hooks/useAuth';
+import { useAppointments } from '../hooks/useAppointments';
 import './Dashboard.css';
 
 const Dashboard = () => {
     const { user } = useAuth();
+    const { getUpcomingAppointments } = useAppointments();
+    const upcomingAppointments = getUpcomingAppointments(7).slice(0, 3);
 
     return (
         <div className="dashboard-container">
@@ -13,12 +16,20 @@ const Dashboard = () => {
             <div className="dashboard-cards">
                 <div className="card">
                     <h2>Upcoming Appointments</h2>
-                    <p>You have 3 appointments scheduled this week.</p>
-                    <ul>
-                        <li>Dr. Smith - 10 July, 10:00 AM</li>
-                        <li>Dr. Lee - 12 July, 2:00 PM</li>
-                        <li>Dr. Patel - 14 July, 9:30 AM</li>
-                    </ul>
+                    {upcomingAppointments.length > 0 ? (
+                        <>
+                            <p>You have {upcomingAppointments.length} appointment(s) scheduled this week.</p>
+                            <ul>
+                                {upcomingAppointments.map(appt => (
+                                    <li key={appt.id}>
+                                        {appt.doctor} - {appt.date}, {appt.time} ({appt.reason})
+                                    </li>
+                                ))}
+                            </ul>
+                        </>
+                    ) : (
+                        <p>No upcoming appointments scheduled.</p>
+                    )}
                 </div>
                 <div className="card">
                     <h2>Recent Prescriptions</h2>

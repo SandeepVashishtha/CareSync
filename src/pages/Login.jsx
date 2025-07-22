@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import axios from 'axios';
+import { authAPI } from '../services/api';
 import './Login.css';
 
 function Login() {
     const [form, setForm] = useState({ email: '', password: '' });
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const { login } = useAuth();
 
@@ -16,14 +17,18 @@ function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError('');
+        
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/login', form);
+            const response = await authAPI.login(form);
             console.log(response.data); // optional
-            setError('');
             login(response.data);
             navigate('/dashboard');
         } catch (err) {
-            setError(err.response?.data || 'Login failed');
+            setError(err.response?.data?.message || 'Login failed');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -51,7 +56,9 @@ function Login() {
                         required
                     />
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" disabled={loading}>
+                    {loading ? 'Logging in...' : 'Login'}
+                </button>
             </form>
             {error && <div className="error-message">{error}</div>}
             <div style={{ marginTop: '1rem' }}>
