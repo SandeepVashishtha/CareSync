@@ -38,15 +38,15 @@ import React from 'react';
                                         <li>Profile updated successfully.</li>
                                     </ul>
                                 </div>
-                                <div className="dashboard-quicklinks">
-                                    <h2>Quick Links</h2>
-                                    <div className="quicklinks-list">
-                                        <a href="#" className="quicklink">Book Appointment</a>
-                                        <a href="#" className="quicklink">View Prescriptions</a>
-                                        <a href="#" className="quicklink">Edit Profile</a>
-                                        <a href="#" className="quicklink">Contact Support</a>
-                                    </div>
-                                </div>
+                                {/*<div className="dashboard-quicklinks">*/}
+                                {/*    <h2>Quick Links</h2>*/}
+                                {/*    <div className="quicklinks-list">*/}
+                                {/*        <a href="#" className="quicklink">Book Appointment</a>*/}
+                                {/*        <a href="#" className="quicklink">View Prescriptions</a>*/}
+                                {/*        <a href="#" className="quicklink">Edit Profile</a>*/}
+                                {/*        <a href="#" className="quicklink">Contact Support</a>*/}
+                                {/*    </div>*/}
+                                {/*</div>*/}
                             </div>
                         );
                     };

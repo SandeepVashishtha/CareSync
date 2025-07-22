@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './Register.css';
 
 function Register() {
     const [form, setForm] = useState({ name: '', email: '', password: '' });
     const [success, setSuccess] = useState(false);
+    const [error, setError] = useState('');
 
     const handleChange = e => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        // Dummy registration logic
-        setSuccess(true);
+        try {
+            await axios.post('http://localhost:8080/api/auth/signup', form);
+            setSuccess(true);
+            setError('');
+        } catch (err) {
+            setError(err.response?.data?.message || 'Registration failed');
+        }
     };
 
     return (
@@ -52,6 +59,7 @@ function Register() {
                         />
                     </div>
                     <button type="submit">Register</button>
+                    {error && <div className="error-message">{error}</div>}
                 </form>
             )}
         </div>
