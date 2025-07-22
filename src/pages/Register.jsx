@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 import axios from 'axios';
 import './Register.css';
 
@@ -6,6 +8,8 @@ function Register() {
     const [form, setForm] = useState({ name: '', email: '', password: '' });
     const [success, setSuccess] = useState(false);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleChange = e => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -14,9 +18,16 @@ function Register() {
     const handleSubmit = async e => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8080/api/auth/signup', form);
+            const response = await axios.post('http://localhost:8080/api/auth/signup', form);
             setSuccess(true);
             setError('');
+            // Auto-login after successful registration
+            if (response.data) {
+                login(response.data);
+                setTimeout(() => {
+                    navigate('/dashboard');
+                }, 1500); // Redirect after showing success message
+            }
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed');
         }
